@@ -17,9 +17,9 @@ public class RetrofitService {
                 .writeTimeout(120L, TimeUnit.SECONDS);
     }
 
-    public Retrofit build() {
+    public Retrofit build(ApiType apiType) {
         return new Retrofit.Builder()
-                .baseUrl("https://tygia.com")
+                .baseUrl(apiType.getBaseUrl())
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(okHttpBuilder.build())
                 .build();

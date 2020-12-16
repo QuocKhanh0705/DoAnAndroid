@@ -1,4 +1,4 @@
-package com.huflit.goldtracker.ui;
+package com.huflit.goldtracker.ui.gold;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,7 +9,7 @@ import androidx.appcompat.widget.AppCompatTextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.huflit.goldtracker.R;
-import com.huflit.goldtracker.data.model.Gold;
+import com.huflit.goldtracker.data.model.gold.Gold;
 import com.huflit.goldtracker.utils.CurrencyUtils;
 
 import java.util.List;

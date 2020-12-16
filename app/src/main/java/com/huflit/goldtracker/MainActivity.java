@@ -1,60 +1,62 @@
 package com.huflit.goldtracker;
 
-import androidx.annotation.StringRes;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.view.View;
+import android.view.MenuItem;
 
-import com.huflit.goldtracker.data.model.Gold;
-import com.huflit.goldtracker.data.model.GoldResponse;
-import com.huflit.goldtracker.data.service.ApiService;
-import com.huflit.goldtracker.data.service.RetrofitService;
-import com.huflit.goldtracker.ui.GoldAdapter;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.huflit.goldtracker.ui.coin.CoinFragment;
+import com.huflit.goldtracker.ui.exchange.ExchangeFragment;
+import com.huflit.goldtracker.ui.gold.GoldFragment;
+import com.huflit.goldtracker.ui.settings.SettingsFragment;
 
-import java.util.List;
-
-public class MainActivity extends AppCompatActivity implements MainView {
-
-    private MainPresenter mainPresenter;
-    private RecyclerView rvGold;
-    private GoldAdapter goldAdapter;
+public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        rvGold = findViewById(R.id.rvGold);
-        mainPresenter = new MainPresenter(this);
-        mainPresenter.getGold();
-//
-//        findViewById(R.id.btnClickMe).setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                mainPresenter.getGold();
-//            }
-//        });
+        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
+        navigation.setOnNavigationItemSelectedListener(this);
+        loadFragment(new GoldFragment());
     }
 
+    @SuppressLint("NonConstantResourceId")
     @Override
-    public void onLoadGoldSuccess(GoldResponse goldResponse) {
-        List<Gold> golds = goldResponse.getGolds().get(0).getGolds();
-        goldAdapter = new GoldAdapter(golds);
-        rvGold.setLayoutManager(new LinearLayoutManager(getBaseContext(), LinearLayoutManager.VERTICAL, false));
-        rvGold.setAdapter(goldAdapter);
-    }
-
-    @Override
-    public void onLoadGoldFailed() {
-
-    }
-
-    public void updateTitle(@StringRes int titleResId) {
-        if (titleResId != -1) {
-
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        Fragment fragment;
+        switch (item.getItemId()) {
+            case R.id.navigation_gold:
+                fragment = new GoldFragment();
+                loadFragment(fragment);
+                return true;
+            case R.id.navigation_exchange:
+                fragment = new ExchangeFragment();
+                loadFragment(fragment);
+                return true;
+            case R.id.navigation_bitcoin:
+                fragment = new CoinFragment();
+                loadFragment(fragment);
+                return true;
+            case R.id.navigation_settings:
+                fragment = new SettingsFragment();
+                loadFragment(fragment);
+                return true;
         }
+        return false;
+    }
+
+    private void loadFragment(Fragment fragment) {
+        // load fragment
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.frame_container, fragment);
+        transaction.addToBackStack(null);
+        transaction.commit();
     }
 }

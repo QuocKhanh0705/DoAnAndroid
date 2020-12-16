@@ -32,6 +32,6 @@ abstract public class BaseFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        mainActivity.updateTitle(titleResId);
+//        mainActivity.updateTitle(titleResId);
     }
 }

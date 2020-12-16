@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">GoldTracker</string>
+    <string name="menu_gold">Gold</string>
+    <string name="menu_exchange">Exchange</string>
+    <string name="menu_bitcoin">Bitcoin</string>
+    <string name="menu_settings">Settings</string>
 </resources>

@@ -1,4 +1,4 @@
-package com.huflit.goldtracker.data.model;
+package com.huflit.goldtracker.data.model.gold;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
