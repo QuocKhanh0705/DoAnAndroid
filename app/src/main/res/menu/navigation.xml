@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_gold"
+        android:icon="@drawable/ic_gold"
+        android:title="@string/menu_gold" />
+
+    <item
+        android:id="@+id/navigation_exchange"
+        android:icon="@drawable/ic_exchange"
+        android:title="@string/menu_exchange" />
+
+    <item
+        android:id="@+id/navigation_bitcoin"
+        android:icon="@drawable/ic_bitcoin"
+        android:title="@string/menu_bitcoin" />
+
+    <item
+        android:id="@+id/navigation_settings"
+        android:icon="@drawable/ic_settings"
+        android:title="@string/menu_settings" />
+
+</menu>
