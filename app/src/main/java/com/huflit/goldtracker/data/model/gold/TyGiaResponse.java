@@ -5,12 +5,19 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-public class GoldResponse {
+public class TyGiaResponse {
+    @Expose
+    @SerializedName("rates")
+    private List<BaseRate> rates;
     @Expose
     @SerializedName("golds")
     private List<BaseGold> golds;
 
     public List<BaseGold> getGolds() {
         return golds;
+    }
+
+    public List<BaseRate> getRates() {
+        return rates;
     }
 }

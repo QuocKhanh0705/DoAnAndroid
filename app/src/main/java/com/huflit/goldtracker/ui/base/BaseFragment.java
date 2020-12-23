@@ -11,7 +11,7 @@ import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 import androidx.fragment.app.Fragment;
 
-import com.huflit.goldtracker.MainActivity;
+import com.huflit.goldtracker.ui.main.MainActivity;
 
 abstract public class BaseFragment extends Fragment {
 
@@ -21,11 +21,12 @@ abstract public class BaseFragment extends Fragment {
     @LayoutRes
     protected abstract int getLayoutResId();
 
-    protected MainActivity mainActivity = (MainActivity) getActivity();
+    protected MainActivity mainActivity;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        mainActivity = (MainActivity) getActivity();
         return inflater.inflate(getLayoutResId(), container, false);
     }
 

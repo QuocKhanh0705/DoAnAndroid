@@ -1,35 +1,36 @@
-package com.huflit.goldtracker.ui.gold;
+package com.huflit.goldtracker.ui.main;
 
 import com.huflit.goldtracker.data.model.gold.TyGiaResponse;
 import com.huflit.goldtracker.ui.base.BasePresenter;
+import com.huflit.goldtracker.ui.gold.GoldView;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class GoldPresenter extends BasePresenter {
+public class MainPresenter extends BasePresenter {
 
-    private GoldView goldView;
+    private MainView mainView;
 
-    public GoldPresenter(GoldView goldView) {
-        this.goldView = goldView;
+    public MainPresenter(MainView mainView) {
+        this.mainView = mainView;
     }
 
-    public void getGold() {
+    public void getData() {
         goldApiService.getGold().enqueue(new Callback<TyGiaResponse>() {
             @Override
             public void onResponse(Call<TyGiaResponse> call, Response<TyGiaResponse> response) {
                 TyGiaResponse data = response.body();
                 if (data != null) {
-                    goldView.onLoadGoldSuccess(data);
+                    mainView.onLoadDataSuccess(data);
                 } else {
-                    goldView.onLoadGoldFailed();
+                    mainView.onLoadDataFailed();
                 }
             }
 
             @Override
             public void onFailure(Call<TyGiaResponse> call, Throwable throwable) {
-                goldView.onLoadGoldFailed();
+                mainView.onLoadDataFailed();
             }
         });
     }

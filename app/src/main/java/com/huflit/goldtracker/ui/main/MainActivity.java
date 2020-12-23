@@ -1,4 +1,4 @@
-package com.huflit.goldtracker;
+package com.huflit.goldtracker.ui.main;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,12 +10,22 @@ import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.huflit.goldtracker.R;
+import com.huflit.goldtracker.data.model.gold.BaseGold;
+import com.huflit.goldtracker.data.model.gold.BaseRate;
+import com.huflit.goldtracker.data.model.gold.TyGiaResponse;
 import com.huflit.goldtracker.ui.coin.CoinFragment;
 import com.huflit.goldtracker.ui.exchange.ExchangeFragment;
 import com.huflit.goldtracker.ui.gold.GoldFragment;
 import com.huflit.goldtracker.ui.settings.SettingsFragment;
 
-public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
+import java.util.List;
+
+public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener, MainView {
+
+    private MainPresenter mainPresenter;
+    private List<BaseGold> goldList;
+    private List<BaseRate> rateList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,7 +34,9 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(this);
-        loadFragment(new GoldFragment());
+
+        mainPresenter = new MainPresenter(this);
+        mainPresenter.getData();
     }
 
     @SuppressLint("NonConstantResourceId")
@@ -58,5 +70,25 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         transaction.replace(R.id.frame_container, fragment);
         transaction.addToBackStack(null);
         transaction.commit();
+    }
+
+    @Override
+    public void onLoadDataSuccess(TyGiaResponse tyGiaResponse) {
+        goldList = tyGiaResponse.getGolds();
+        rateList = tyGiaResponse.getRates();
+        loadFragment(new GoldFragment());
+    }
+
+    public List<BaseGold> getGoldList() {
+        return goldList;
+    }
+
+    public List<BaseRate> getRateList() {
+        return rateList;
+    }
+
+    @Override
+    public void onLoadDataFailed() {
+
     }
 }

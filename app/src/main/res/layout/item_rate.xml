@@ -16,17 +16,37 @@
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="SJC Long Xuyên" />
+        tools:text="USD" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/glBuy"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.6" />
+        app:layout_constraintGuide_percent="0.4" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvBuy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/holo_blue_light"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/tvName"
+        app:layout_constraintEnd_toStartOf="@id/glTransfer"
+        app:layout_constraintStart_toStartOf="@id/glBuy"
+        app:layout_constraintTop_toTopOf="@id/tvName"
+        tools:text="55530" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/glTransfer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.6" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvTransfer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@android:color/holo_green_dark"
@@ -34,7 +54,7 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@id/tvName"
         app:layout_constraintEnd_toStartOf="@id/glSell"
-        app:layout_constraintStart_toStartOf="@id/glBuy"
+        app:layout_constraintStart_toStartOf="@id/glTransfer"
         app:layout_constraintTop_toTopOf="@id/tvName"
         tools:text="55530" />
 
