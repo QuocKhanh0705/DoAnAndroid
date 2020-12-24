@@ -13,9 +13,7 @@ import com.huflit.goldtracker.ui.base.BaseFragment;
 
 import java.util.List;
 
-public class CoinFragment extends BaseFragment implements CoinView {
-
-    private CoinPresenter coinPresenter;
+public class CoinFragment extends BaseFragment {
 
     @Override
     protected int getLayoutResId() {
@@ -25,17 +23,7 @@ public class CoinFragment extends BaseFragment implements CoinView {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        coinPresenter = new CoinPresenter(this);
-        coinPresenter.getCoin();
+        mainActivity.getCoinList();
     }
 
-    @Override
-    public void onLoadCoinSuccess(List<Coin> coins) {
-        Log.e("Coin", "size: " + coins.size());
-    }
-
-    @Override
-    public void onLoadCoinFailed() {
-        Log.e("Coin", "onLoadCoinFailed");
-    }
 }

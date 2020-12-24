@@ -2,6 +2,7 @@ package com.huflit.goldtracker.data.model.gold;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import com.huflit.goldtracker.utils.NumberUtils;
 
 public class Gold {
     @Expose
@@ -38,12 +39,12 @@ public class Gold {
     public Gold() {
     }
 
-    public String getBuy() {
-        return buy;
+    public double getBuy() {
+        return NumberUtils.parseDouble(buy);
     }
 
-    public String getSell() {
-        return sell;
+    public double getSell() {
+        return NumberUtils.parseDouble(sell);
     }
 
     public String getBrand() {

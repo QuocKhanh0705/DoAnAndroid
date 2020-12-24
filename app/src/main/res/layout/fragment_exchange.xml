@@ -5,7 +5,7 @@
     android:layout_height="match_parent">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvRate"
+        android:id="@+id/rvExchange"
         android:layout_height="match_parent"
         android:layout_width="match_parent"/>
 

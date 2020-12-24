@@ -5,15 +5,25 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-public class BaseRate {
+public class BaseExchange {
+    @Expose
+    @SerializedName("bank")
     private String bank;
+    @Expose
+    @SerializedName("brand")
     private String brand;
+    @Expose
+    @SerializedName("updated")
     private long updated;
+    @Expose
+    @SerializedName("date")
     private String date;
+    @Expose
+    @SerializedName("version")
     private String version;
     @Expose
     @SerializedName("value")
-    private List<Rate> rates;
+    private List<Exchange> exchanges;
 
     public String getBank() {
         return bank;
@@ -35,7 +45,7 @@ public class BaseRate {
         return version;
     }
 
-    public List<Rate> getRates() {
-        return rates;
+    public List<Exchange> getExchanges() {
+        return exchanges;
     }
 }

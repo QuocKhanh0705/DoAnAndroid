@@ -8,11 +8,14 @@ import androidx.fragment.app.FragmentTransaction;
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ProgressBar;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.huflit.goldtracker.R;
+import com.huflit.goldtracker.data.model.coin.Coin;
 import com.huflit.goldtracker.data.model.gold.BaseGold;
-import com.huflit.goldtracker.data.model.gold.BaseRate;
+import com.huflit.goldtracker.data.model.gold.BaseExchange;
 import com.huflit.goldtracker.data.model.gold.TyGiaResponse;
 import com.huflit.goldtracker.ui.coin.CoinFragment;
 import com.huflit.goldtracker.ui.exchange.ExchangeFragment;
@@ -23,20 +26,30 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener, MainView {
 
+    private ProgressBar progress;
     private MainPresenter mainPresenter;
+
     private List<BaseGold> goldList;
-    private List<BaseRate> rateList;
+    private List<BaseExchange> rateList;
+    private List<Coin> coinList;
+
+    private boolean isGoldLoaded = false;
+    private boolean isCoinLoaded = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        progress = findViewById(R.id.progress);
+
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(this);
 
         mainPresenter = new MainPresenter(this);
+        showProgress();
         mainPresenter.getData();
+        mainPresenter.getCoin();
     }
 
     @SuppressLint("NonConstantResourceId")
@@ -74,21 +87,59 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 
     @Override
     public void onLoadDataSuccess(TyGiaResponse tyGiaResponse) {
+        isGoldLoaded = true;
+        progressState();
         goldList = tyGiaResponse.getGolds();
         rateList = tyGiaResponse.getRates();
         loadFragment(new GoldFragment());
+    }
+
+    @Override
+    public void onLoadDataFailed() {
+        isGoldLoaded = true;
+        progressState();
+    }
+
+    @Override
+    public void onLoadCoinSuccess(List<Coin> coins) {
+        isCoinLoaded = true;
+        progressState();
+        coinList = coins;
+    }
+
+    @Override
+    public void onLoadCoinFailed() {
+        isCoinLoaded = true;
+        progressState();
+    }
+
+    private void progressState() {
+        if (isGoldLoaded && isCoinLoaded) {
+            hideProgress();
+        }
+    }
+
+    private void showProgress() {
+        if (progress.getVisibility() != View.VISIBLE) {
+            progress.setVisibility(View.VISIBLE);
+        }
+    }
+
+    private void hideProgress() {
+        if (progress.getVisibility() != View.GONE) {
+            progress.setVisibility(View.GONE);
+        }
     }
 
     public List<BaseGold> getGoldList() {
         return goldList;
     }
 
-    public List<BaseRate> getRateList() {
+    public List<BaseExchange> getRateList() {
         return rateList;
     }
 
-    @Override
-    public void onLoadDataFailed() {
-
+    public List<Coin> getCoinList() {
+        return coinList;
     }
 }

@@ -16,17 +16,19 @@ import java.util.List;
 
 public class GoldAdapter extends RecyclerView.Adapter<GoldAdapter.ViewHolder> {
 
-    private final List<Gold> golds;
+    protected final List<Gold> golds;
+    private OnGoldClickListener listener;
 
-    public GoldAdapter(List<Gold> golds) {
+    public GoldAdapter(List<Gold> golds, OnGoldClickListener listener) {
         this.golds = golds;
+        this.listener = listener;
     }
 
     @NonNull
     @Override
     public GoldAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_gold, parent, false);
-        return new ViewHolder(view);
+        return new ViewHolder(view, listener);
     }
 
     @Override
@@ -42,22 +44,39 @@ public class GoldAdapter extends RecyclerView.Adapter<GoldAdapter.ViewHolder> {
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
         private final AppCompatTextView tvName;
+        private final AppCompatTextView tvType;
         private final AppCompatTextView tvBuy;
         private final AppCompatTextView tvSell;
         private final CurrencyUtils currencyUtils = new CurrencyUtils();
+        private Gold gold;
 
-        public ViewHolder(@NonNull View itemView) {
+        public ViewHolder(@NonNull View itemView, OnGoldClickListener listener) {
             super(itemView);
             tvName = itemView.findViewById(R.id.tvName);
+            tvType = itemView.findViewById(R.id.tvType);
             tvBuy = itemView.findViewById(R.id.tvBuy);
             tvSell = itemView.findViewById(R.id.tvSell);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    listener.onGoldClicked(gold);
+                }
+            });
         }
 
+
         public void bind(Gold gold) {
+            this.gold = gold;
             String name = gold.getCompany() + " " + gold.getBrand();
             tvName.setText(name);
-            tvBuy.setText(gold.getBuy());
-            tvSell.setText(gold.getSell());
+            tvType.setText(gold.getType());
+            tvBuy.setText(currencyUtils.format(gold.getBuy(), currencyUtils.CURRENCY_MIL_UNIT));
+            tvSell.setText(currencyUtils.format(gold.getSell(), currencyUtils.CURRENCY_MIL_UNIT));
         }
+    }
+
+    public interface OnGoldClickListener {
+        void onGoldClicked(Gold gold);
     }
 }

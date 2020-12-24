@@ -1,6 +1,8 @@
 package com.huflit.goldtracker.data.model.gold;
 
-public class Rate {
+import com.huflit.goldtracker.utils.NumberUtils;
+
+public class Exchange {
     private String buy;
     private String order;
     private String name;
@@ -10,8 +12,8 @@ public class Rate {
     private String day;
     private String code;
 
-    public String getBuy() {
-        return buy;
+    public double getBuy() {
+        return NumberUtils.parseDouble(buy);
     }
 
     public String getOrder() {
@@ -22,12 +24,12 @@ public class Rate {
         return name;
     }
 
-    public String getSell() {
-        return sell;
+    public double getSell() {
+        return NumberUtils.parseDouble(sell);
     }
 
-    public String getTransfer() {
-        return transfer;
+    public double getTransfer() {
+        return NumberUtils.parseDouble(transfer);
     }
 
     public String getId() {

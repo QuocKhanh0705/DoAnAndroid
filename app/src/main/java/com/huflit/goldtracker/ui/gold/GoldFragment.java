@@ -2,6 +2,7 @@ package com.huflit.goldtracker.ui.gold;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -16,7 +17,7 @@ import com.huflit.goldtracker.ui.base.BaseFragment;
 
 import java.util.List;
 
-public class GoldFragment extends BaseFragment {
+public class GoldFragment extends BaseFragment implements GoldAdapter.OnGoldClickListener {
 
     private RecyclerView rvGold;
     private GoldAdapter goldAdapter;
@@ -35,9 +36,14 @@ public class GoldFragment extends BaseFragment {
 
     private void loadGold() {
         List<Gold> golds = mainActivity.getGoldList().get(0).getGolds();
-        goldAdapter = new GoldAdapter(golds);
+        goldAdapter = new GoldAdapter(golds,this);
         rvGold.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
         rvGold.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL));
         rvGold.setAdapter(goldAdapter);
+    }
+
+    @Override
+    public void onGoldClicked(Gold gold) {
+        Toast.makeText(getContext(),gold.toString(),Toast.LENGTH_LONG).show();
     }
 }

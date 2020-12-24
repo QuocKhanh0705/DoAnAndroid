@@ -10,15 +10,15 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.huflit.goldtracker.R;
-import com.huflit.goldtracker.data.model.gold.Rate;
+import com.huflit.goldtracker.data.model.gold.Exchange;
 import com.huflit.goldtracker.ui.base.BaseFragment;
 
 import java.util.List;
 
 public class ExchangeFragment extends BaseFragment {
 
-    private RecyclerView rvRate;
-    private RateAdapter rateAdapter;
+    private RecyclerView rvExchange;
+    private ExchangeAdapter exchangeAdapter;
 
     @Override
     protected int getLayoutResId() {
@@ -28,15 +28,15 @@ public class ExchangeFragment extends BaseFragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        rvRate = view.findViewById(R.id.rvRate);
+        rvExchange = view.findViewById(R.id.rvExchange);
         loadRate();
     }
 
     private void loadRate() {
-        List<Rate> rates = mainActivity.getRateList().get(0).getRates();
-        rateAdapter = new RateAdapter(rates);
-        rvRate.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
-        rvRate.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL));
-        rvRate.setAdapter(rateAdapter);
+        List<Exchange> exchanges = mainActivity.getRateList().get(0).getExchanges();
+        exchangeAdapter = new ExchangeAdapter(exchanges);
+        rvExchange.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
+        rvExchange.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL));
+        rvExchange.setAdapter(exchangeAdapter);
     }
 }

@@ -18,6 +18,15 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:text="SJC Long Xuyên" />
 
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="4dp"
+        app:layout_constraintStart_toStartOf="@id/tvName"
+        app:layout_constraintTop_toBottomOf="@id/tvName"
+        tools:text="Vàng nhẫn SJC 99,99 0,5 chỉ" />
+
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/glBuy"
         android:layout_width="wrap_content"
@@ -32,10 +41,10 @@
         android:textColor="@android:color/holo_green_dark"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@id/tvName"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/glSell"
         app:layout_constraintStart_toStartOf="@id/glBuy"
-        app:layout_constraintTop_toTopOf="@id/tvName"
+        app:layout_constraintTop_toTopOf="parent"
         tools:text="55530" />
 
     <androidx.constraintlayout.widget.Guideline
@@ -52,10 +61,10 @@
         android:textColor="@android:color/holo_red_light"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@id/tvName"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@id/glSell"
-        app:layout_constraintTop_toTopOf="@id/tvName"
+        app:layout_constraintTop_toTopOf="parent"
         tools:text="54770" />
 
 

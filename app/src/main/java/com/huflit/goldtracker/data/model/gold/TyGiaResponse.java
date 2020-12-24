@@ -8,7 +8,7 @@ import java.util.List;
 public class TyGiaResponse {
     @Expose
     @SerializedName("rates")
-    private List<BaseRate> rates;
+    private List<BaseExchange> rates;
     @Expose
     @SerializedName("golds")
     private List<BaseGold> golds;
@@ -17,7 +17,7 @@ public class TyGiaResponse {
         return golds;
     }
 
-    public List<BaseRate> getRates() {
+    public List<BaseExchange> getRates() {
         return rates;
     }
 }
