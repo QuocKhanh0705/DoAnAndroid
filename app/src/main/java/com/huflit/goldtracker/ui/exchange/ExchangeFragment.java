@@ -59,12 +59,14 @@ public class ExchangeFragment extends BaseFragment implements ExchangeView, Date
     }
 
     private void loadRate() {
+        mainActivity.showProgress();
         presenter = new ExchangePresenter(this);
         presenter.getExchange(DateUtils.getDateFormat(exchangeCalendar));
     }
 
     @Override
     public void onLoadExchangeSuccess(TyGiaResponse tyGiaResponse) {
+        mainActivity.hideProgress();
         List<Exchange> exchanges = tyGiaResponse.getExchanges().get(0).getExchanges();
         exchangeAdapter = new ExchangeAdapter(exchanges);
         rvExchange.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
@@ -74,7 +76,7 @@ public class ExchangeFragment extends BaseFragment implements ExchangeView, Date
 
     @Override
     public void onLoadExchangeFailed() {
-
+        mainActivity.hideProgress();
     }
 
     @Override
@@ -82,5 +84,11 @@ public class ExchangeFragment extends BaseFragment implements ExchangeView, Date
         tvDate.setText(DateUtils.getDateString(year, monthOfYear, dayOfMonth));
         presenter.getExchange(DateUtils.getDateFormat(year, monthOfYear, dayOfMonth));
         mainActivity.setExchangeCalendar(DateUtils.getCalendar(year, monthOfYear, dayOfMonth));
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        mainActivity.hideProgress();
     }
 }

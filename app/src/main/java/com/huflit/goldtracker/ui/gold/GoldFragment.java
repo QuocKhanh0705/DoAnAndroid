@@ -66,6 +66,7 @@ public class GoldFragment extends BaseFragment
     private void loadGold() {
         presenter = new GoldPresenter(this);
         presenter.getGold(DateUtils.getDateFormat(goldCalendar));
+        mainActivity.showProgress();
     }
 
     @Override
@@ -82,6 +83,7 @@ public class GoldFragment extends BaseFragment
 
     @Override
     public void onLoadGoldSuccess(TyGiaResponse tyGiaResponse) {
+        mainActivity.hideProgress();
         List<Gold> golds = tyGiaResponse.getGolds().get(0).getGolds();
         goldAdapter = new GoldAdapter(golds, this);
         rvGold.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
@@ -91,6 +93,12 @@ public class GoldFragment extends BaseFragment
 
     @Override
     public void onLoadGoldFailed() {
+        mainActivity.hideProgress();
+    }
 
+    @Override
+    public void onStop() {
+        super.onStop();
+        mainActivity.hideProgress();
     }
 }

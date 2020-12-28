@@ -13,17 +13,12 @@ import android.widget.ProgressBar;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.huflit.goldtracker.R;
-import com.huflit.goldtracker.data.model.coin.Coin;
-import com.huflit.goldtracker.data.model.gold.BaseGold;
-import com.huflit.goldtracker.data.model.gold.BaseExchange;
-import com.huflit.goldtracker.data.model.gold.TyGiaResponse;
 import com.huflit.goldtracker.ui.coin.CoinFragment;
 import com.huflit.goldtracker.ui.exchange.ExchangeFragment;
 import com.huflit.goldtracker.ui.gold.GoldFragment;
 import com.huflit.goldtracker.ui.settings.SettingsFragment;
 
 import java.util.Calendar;
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
 
@@ -77,13 +72,13 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         transaction.commit();
     }
 
-    private void showProgress() {
+    public void showProgress() {
         if (progress.getVisibility() != View.VISIBLE) {
             progress.setVisibility(View.VISIBLE);
         }
     }
 
-    private void hideProgress() {
+    public void hideProgress() {
         if (progress.getVisibility() != View.GONE) {
             progress.setVisibility(View.GONE);
         }
