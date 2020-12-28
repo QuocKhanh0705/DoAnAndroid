@@ -22,19 +22,14 @@ import com.huflit.goldtracker.ui.exchange.ExchangeFragment;
 import com.huflit.goldtracker.ui.gold.GoldFragment;
 import com.huflit.goldtracker.ui.settings.SettingsFragment;
 
+import java.util.Calendar;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener, MainView {
+public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
 
     private ProgressBar progress;
-    private MainPresenter mainPresenter;
-
-    private List<BaseGold> goldList;
-    private List<BaseExchange> rateList;
-    private List<Coin> coinList;
-
-    private boolean isGoldLoaded = false;
-    private boolean isCoinLoaded = false;
+    private Calendar goldCalendar = Calendar.getInstance();
+    private Calendar exchangeCalendar = Calendar.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,10 +41,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(this);
 
-        mainPresenter = new MainPresenter(this);
-        showProgress();
-        mainPresenter.getData();
-        mainPresenter.getCoin();
+        loadFragment(new GoldFragment());
     }
 
     @SuppressLint("NonConstantResourceId")
@@ -85,40 +77,6 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         transaction.commit();
     }
 
-    @Override
-    public void onLoadDataSuccess(TyGiaResponse tyGiaResponse) {
-        isGoldLoaded = true;
-        progressState();
-        goldList = tyGiaResponse.getGolds();
-        rateList = tyGiaResponse.getRates();
-        loadFragment(new GoldFragment());
-    }
-
-    @Override
-    public void onLoadDataFailed() {
-        isGoldLoaded = true;
-        progressState();
-    }
-
-    @Override
-    public void onLoadCoinSuccess(List<Coin> coins) {
-        isCoinLoaded = true;
-        progressState();
-        coinList = coins;
-    }
-
-    @Override
-    public void onLoadCoinFailed() {
-        isCoinLoaded = true;
-        progressState();
-    }
-
-    private void progressState() {
-        if (isGoldLoaded && isCoinLoaded) {
-            hideProgress();
-        }
-    }
-
     private void showProgress() {
         if (progress.getVisibility() != View.VISIBLE) {
             progress.setVisibility(View.VISIBLE);
@@ -131,15 +89,19 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         }
     }
 
-    public List<BaseGold> getGoldList() {
-        return goldList;
+    public void setGoldCalendar(Calendar goldCalendar) {
+        this.goldCalendar = goldCalendar;
     }
 
-    public List<BaseExchange> getRateList() {
-        return rateList;
+    public Calendar getGoldCalendar() {
+        return goldCalendar;
     }
 
-    public List<Coin> getCoinList() {
-        return coinList;
+    public Calendar getExchangeCalendar() {
+        return exchangeCalendar;
+    }
+
+    public void setExchangeCalendar(Calendar exchangeCalendar) {
+        this.exchangeCalendar = exchangeCalendar;
     }
 }

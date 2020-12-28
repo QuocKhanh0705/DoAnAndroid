@@ -17,7 +17,7 @@ public class TyGiaResponse {
         return golds;
     }
 
-    public List<BaseExchange> getRates() {
+    public List<BaseExchange> getExchanges() {
         return rates;
     }
 }

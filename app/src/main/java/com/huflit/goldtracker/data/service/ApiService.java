@@ -7,12 +7,15 @@ import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
+import retrofit2.http.Query;
 
 public interface ApiService {
 
-    //json.php?column=3&cols=2&title=0&chart=1&gold=1&rate=1&expand=2&color=aa1111&nganhang=VIETCOM&fontsize=80
-    @GET("/json.php")
-    Call<TyGiaResponse> getGold();
+    @GET("/json.php?&nganhang=VIETCOM&gold=1&rate=0")
+    Call<TyGiaResponse> getGold(@Query("ngay") String date);
+
+    @GET("/json.php?&nganhang=VIETCOM&gold=0&rate=1")
+    Call<TyGiaResponse> getExchange(@Query("ngay") String date);
 
     @GET("/api/2/public/currency")
     Call<List<Coin>> getCoin();
