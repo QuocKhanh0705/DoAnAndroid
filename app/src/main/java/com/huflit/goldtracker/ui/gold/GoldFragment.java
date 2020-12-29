@@ -27,7 +27,6 @@ public class GoldFragment extends BaseFragment
     private RecyclerView rvGold;
     private AppCompatTextView tvDate;
     private GoldAdapter goldAdapter;
-
     private GoldPresenter presenter;
     private Calendar goldCalendar;
 

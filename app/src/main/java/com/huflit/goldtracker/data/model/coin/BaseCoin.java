@@ -2,12 +2,12 @@ package com.huflit.goldtracker.data.model.coin;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import com.huflit.goldtracker.data.model.gold.BaseGold;
+import com.huflit.goldtracker.data.model.gold.Gold;
 
 import java.util.List;
 
-public class CoinResponse {
-   /* @Expose
+public class BaseCoin {
+  /*  @Expose
     @SerializedName("id")
     private String id;
     @Expose
@@ -22,9 +22,7 @@ public class CoinResponse {
     @SerializedName("Change_Price_24h_Percentage")
     private  String Change_Price_24h_Percentage;
 */
-
     private List<Coin> coins;
-
     public List<Coin> getCoins() {
         return coins;
     }

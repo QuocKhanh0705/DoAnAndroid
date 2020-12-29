@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     private ProgressBar progress;
     private Calendar goldCalendar = Calendar.getInstance();
     private Calendar exchangeCalendar = Calendar.getInstance();
-
+    private Calendar coinCalendar = Calendar.getInstance();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -99,4 +99,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     public void setExchangeCalendar(Calendar exchangeCalendar) {
         this.exchangeCalendar = exchangeCalendar;
     }
+    public  void setCoinCalendar(Calendar coinCalendar) {this.coinCalendar = coinCalendar;}
+    public  Calendar getCoinCalenda()
+    {return coinCalendar; }
 }

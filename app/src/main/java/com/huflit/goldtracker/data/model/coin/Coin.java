@@ -10,6 +10,31 @@ public class Coin {
     @Expose
     @SerializedName("fullName")
     private String fullName;
+
+    @Expose
+    @SerializedName("Current_Price")
+    private  String Current_Price;
+
+    @Expose
+    @SerializedName("Change_Price_24h_Percentage")
+    private  String Change_Price_24h_Percentage;
+
+
+    public  String  getId(){
+        return  id;
+    }
+    public  String  getFullName(){
+        return  fullName;
+    }
+    public  String  getCurrent_Price(){
+        return  Current_Price;
+    }
+    public  String  getChange_Price_24h_Percentage(){
+        return  Change_Price_24h_Percentage;
+    }
+    public Coin() {
+    }
+   /*
     @Expose
     @SerializedName("crypto")
     private boolean crypto;
@@ -61,7 +86,9 @@ public class Coin {
         return fullName;
     }
 
-    public boolean isCrypto() {
+   */
+
+   /* public boolean isCrypto() {
         return crypto;
     }
 
@@ -115,5 +142,5 @@ public class Coin {
 
     public String getAvgProcessingTime() {
         return avgProcessingTime;
-    }
+    }*/
 }
