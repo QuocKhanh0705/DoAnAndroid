@@ -3,7 +3,7 @@ package com.huflit.goldtracker.data.service;
 public enum ApiType {
 
     GOLD("https://tygia.com"),
-    BITCOIN("https://api.exchange.bitcoin.com"),
+    BITCOIN("https://api.coingecko.com"),
     CURRENCY("");
 
     private String baseUrl;

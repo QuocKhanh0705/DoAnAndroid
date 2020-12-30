@@ -8,139 +8,119 @@ public class Coin {
     @SerializedName("id")
     private String id;
     @Expose
-    @SerializedName("fullName")
-    private String fullName;
-
+    @SerializedName("symbol")
+    private String symbol;
     @Expose
-    @SerializedName("Current_Price")
-    private  String Current_Price;
-
+    @SerializedName("name")
+    private String name;
     @Expose
-    @SerializedName("Change_Price_24h_Percentage")
-    private  String Change_Price_24h_Percentage;
-
-
-    public  String  getId(){
-        return  id;
-    }
-    public  String  getFullName(){
-        return  fullName;
-    }
-    public  String  getCurrent_Price(){
-        return  Current_Price;
-    }
-    public  String  getChange_Price_24h_Percentage(){
-        return  Change_Price_24h_Percentage;
-    }
-    public Coin() {
-    }
-   /*
+    @SerializedName("image")
+    private String image;
     @Expose
-    @SerializedName("crypto")
-    private boolean crypto;
+    @SerializedName("current_price")
+    private double currentPrice;
     @Expose
-    @SerializedName("payinEnabled")
-    private boolean payinEnabled;
+    @SerializedName("market_cap_rank")
+    private long marketCapRank;
     @Expose
-    @SerializedName("payinPaymentId")
-    private boolean payinPaymentId;
+    @SerializedName("price_change_24h")
+    private double priceChange24h;
     @Expose
-    @SerializedName("payinConfirmations")
-    private int payinConfirmations;
+    @SerializedName("price_change_percentage_24h")
+    private double priceChangePercentage24h;
     @Expose
-    @SerializedName("payoutEnabled")
-    private boolean payoutEnabled;
+    @SerializedName("market_cap_change_percentage_24h")
+    private double marketCapChangePercentage24h;
     @Expose
-    @SerializedName("payoutIsPaymentId")
-    private boolean payoutIsPaymentId;
+    @SerializedName("ath_change_percentage")
+    private double athChangePercentage;
     @Expose
-    @SerializedName("transferEnabled")
-    private boolean transferEnabled;
+    @SerializedName("ath_date")
+    private String athDate;
     @Expose
-    @SerializedName("delisted")
-    private boolean delisted;
+    @SerializedName("last_updated")
+    private String lastUpdated;
     @Expose
-    @SerializedName("payoutFee")
-    private String payoutFee;
+    @SerializedName("price_change_percentage_1h_in_currency")
+    private double priceChangePercentage1hInCurrency;
     @Expose
-    @SerializedName("precisionPayout")
-    private int precisionPayout;
+    @SerializedName("price_change_percentage_24h_in_currency")
+    private double priceChangePercentage24hInCurrency;
     @Expose
-    @SerializedName("precisionTransfer")
-    private int precisionTransfer;
+    @SerializedName("price_change_percentage_7d_in_currency")
+    private double priceChangePercentage7dInCurrency;
     @Expose
-    @SerializedName("lowProcessingTime")
-    private String lowProcessingTime;
+    @SerializedName("price_change_percentage_30d_in_currency")
+    private double priceChangePercentage30dInCurrency;
     @Expose
-    @SerializedName("highProcessingTime")
-    private String highProcessingTime;
-    @Expose
-    @SerializedName("avgProcessingTime")
-    private String avgProcessingTime;
+    @SerializedName("price_change_percentage_1y_in_currency")
+    private double priceChangePercentage1yInCurrency;
 
     public String getId() {
         return id;
     }
 
-    public String getFullName() {
-        return fullName;
+    public String getSymbol() {
+        return symbol;
     }
 
-   */
-
-   /* public boolean isCrypto() {
-        return crypto;
+    public String getName() {
+        return name;
     }
 
-    public boolean isPayinEnabled() {
-        return payinEnabled;
+    public String getImage() {
+        return image;
     }
 
-    public boolean isPayinPaymentId() {
-        return payinPaymentId;
+    public double getCurrentPrice() {
+        return currentPrice;
     }
 
-    public int getPayinConfirmations() {
-        return payinConfirmations;
+    public long getMarketCapRank() {
+        return marketCapRank;
     }
 
-    public boolean isPayoutEnabled() {
-        return payoutEnabled;
+    public double getPriceChange24h() {
+        return priceChange24h;
     }
 
-    public boolean isPayoutIsPaymentId() {
-        return payoutIsPaymentId;
+    public double getPriceChangePercentage24h() {
+        return priceChangePercentage24h;
     }
 
-    public boolean isTransferEnabled() {
-        return transferEnabled;
+    public double getMarketCapChangePercentage24h() {
+        return marketCapChangePercentage24h;
     }
 
-    public boolean isDelisted() {
-        return delisted;
+    public double getAthChangePercentage() {
+        return athChangePercentage;
     }
 
-    public String getPayoutFee() {
-        return payoutFee;
+    public String getAthDate() {
+        return athDate;
     }
 
-    public int getPrecisionPayout() {
-        return precisionPayout;
+    public String getLastUpdated() {
+        return lastUpdated;
     }
 
-    public int getPrecisionTransfer() {
-        return precisionTransfer;
+    public double getPriceChangePercentage1hInCurrency() {
+        return priceChangePercentage1hInCurrency;
     }
 
-    public String getLowProcessingTime() {
-        return lowProcessingTime;
+    public double getPriceChangePercentage24hInCurrency() {
+        return priceChangePercentage24hInCurrency;
     }
 
-    public String getHighProcessingTime() {
-        return highProcessingTime;
+    public double getPriceChangePercentage7dInCurrency() {
+        return priceChangePercentage7dInCurrency;
     }
 
-    public String getAvgProcessingTime() {
-        return avgProcessingTime;
-    }*/
+    public double getPriceChangePercentage30dInCurrency() {
+        return priceChangePercentage30dInCurrency;
+    }
+
+    public double getPriceChangePercentage1yInCurrency() {
+        return priceChangePercentage1yInCurrency;
+    }
 }

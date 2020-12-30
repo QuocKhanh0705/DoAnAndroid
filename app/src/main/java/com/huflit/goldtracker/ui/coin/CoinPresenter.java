@@ -17,11 +17,11 @@ public class CoinPresenter extends BasePresenter {
         this.coinView = coinView;
     }
 
-    public void getCoin(String date) {
-        coinApiService.getCoin(date).enqueue(new Callback<List<Coin>>() {
+    public void getCoin(String priceChangePercentage) {
+        coinApiService.getCoin(priceChangePercentage).enqueue(new Callback<List<Coin>>() {
             @Override
             public void onResponse(Call<List<Coin>> call, Response<List<Coin>> response) {
-               // coinView.onLoadCoinSuccess(response.body());
+                coinView.onLoadCoinSuccess(response.body());
             }
 
             @Override

@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface CoinView {
 
-    void onLoadCoinSuccess(CoinResponse coinResponse);
+    void onLoadCoinSuccess(List<Coin> coins);
 
     void onLoadCoinFailed();
 }

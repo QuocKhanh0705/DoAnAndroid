@@ -7,21 +7,6 @@ import com.huflit.goldtracker.data.model.gold.BaseGold;
 import java.util.List;
 
 public class CoinResponse {
-   /* @Expose
-    @SerializedName("id")
-    private String id;
-    @Expose
-    @SerializedName("fullName")
-    private String fullName;
-
-    @Expose
-    @SerializedName("Current_Price")
-    private  String Current_Price;
-
-    @Expose
-    @SerializedName("Change_Price_24h_Percentage")
-    private  String Change_Price_24h_Percentage;
-*/
 
     private List<Coin> coins;
 

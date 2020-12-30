@@ -22,14 +22,14 @@ import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;
 import java.util.Calendar;
 import java.util.List;
 
-public class CoinFragment extends BaseFragment
-        implements CoinAdapter.OnCoinClickListener, DatePickerDialog.OnDateSetListener, CoinView {
+public class CoinFragment extends BaseFragment implements CoinAdapter.OnCoinClickListener, CoinView {
 
     private RecyclerView rvCoin;
     private AppCompatTextView tvDate;
     private CoinAdapter coinAdapter;
     private Calendar coinCalendar;
     private CoinPresenter presenter;
+
     @Override
     protected int getLayoutResId() {
         return R.layout.fragment_bitcoin;
@@ -38,25 +38,24 @@ public class CoinFragment extends BaseFragment
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        rvCoin = view.findViewById(R.id.rvGold);
+        rvCoin = view.findViewById(R.id.rvCoin);
         loadCoin();
-       // tvDate = view.findViewById(R.id.tvDate);
     }
 
     private void loadCoin() {
         presenter = new CoinPresenter(this);
-        presenter.getCoin(DateUtils.getDateFormat(coinCalendar));
+        presenter.getCoin("1h");
         mainActivity.showProgress();
     }
+
     @Override
     public void onCoinClicked(Coin coin) {
         Toast.makeText(getContext(), coin.toString(), Toast.LENGTH_LONG).show();
     }
 
     @Override
-    public void onLoadCoinSuccess(CoinResponse coinResponse) {
+    public void onLoadCoinSuccess(List<Coin> coins) {
         mainActivity.hideProgress();
-        List<Coin> coins = coinResponse.getCoins().get(0).getCoins();
         coinAdapter = new CoinAdapter(coins);
         rvCoin.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
         rvCoin.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL));
@@ -72,12 +71,5 @@ public class CoinFragment extends BaseFragment
     public void onStop() {
         super.onStop();
         mainActivity.hideProgress();
-    }
-
-    @Override
-    public void onDateSet(DatePickerDialog view, int year, int monthOfYear, int dayOfMonth) {
-        tvDate.setText(DateUtils.getDateString(year, monthOfYear, dayOfMonth));
-        presenter.getCoin(DateUtils.getDateFormat(year, monthOfYear, dayOfMonth));
-        mainActivity.setGoldCalendar(DateUtils.getCalendar(year, monthOfYear, dayOfMonth));
     }
 }
