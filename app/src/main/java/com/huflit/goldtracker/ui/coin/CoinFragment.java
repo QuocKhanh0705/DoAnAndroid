@@ -27,7 +27,6 @@ public class CoinFragment extends BaseFragment implements CoinAdapter.OnCoinClic
     private RecyclerView rvCoin;
     private AppCompatTextView tvDate;
     private CoinAdapter coinAdapter;
-    private Calendar coinCalendar;
     private CoinPresenter presenter;
 
     @Override
