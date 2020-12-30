@@ -10,7 +10,7 @@
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvRank"
-        android:layout_width="0dp"
+        android:layout_width="15dp"
         android:layout_height="wrap_content"
         android:layout_weight="0.05"
         android:padding="4dp"
