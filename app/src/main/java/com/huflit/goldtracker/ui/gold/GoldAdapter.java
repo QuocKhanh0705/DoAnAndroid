@@ -47,7 +47,6 @@ public class GoldAdapter extends RecyclerView.Adapter<GoldAdapter.ViewHolder> {
         private final AppCompatTextView tvType;
         private final AppCompatTextView tvBuy;
         private final AppCompatTextView tvSell;
-        private final CurrencyUtils currencyUtils = new CurrencyUtils();
         private Gold gold;
 
         public ViewHolder(@NonNull View itemView, OnGoldClickListener listener) {
@@ -71,8 +70,8 @@ public class GoldAdapter extends RecyclerView.Adapter<GoldAdapter.ViewHolder> {
             String name = gold.getCompany() + " " + gold.getBrand();
             tvName.setText(name);
             tvType.setText(gold.getType());
-            tvBuy.setText(currencyUtils.format(gold.getBuy(), currencyUtils.CURRENCY_MIL_UNIT));
-            tvSell.setText(currencyUtils.format(gold.getSell(), currencyUtils.CURRENCY_MIL_UNIT));
+            tvBuy.setText(CurrencyUtils.format(gold.getBuy(), CurrencyUtils.CURRENCY_MIL_UNIT));
+            tvSell.setText(CurrencyUtils.format(gold.getSell(), CurrencyUtils.CURRENCY_MIL_UNIT));
         }
     }
 

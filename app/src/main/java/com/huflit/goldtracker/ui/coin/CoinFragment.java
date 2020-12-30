@@ -43,7 +43,7 @@ public class CoinFragment extends BaseFragment implements CoinAdapter.OnCoinClic
 
     private void loadCoin() {
         presenter = new CoinPresenter(this);
-        presenter.getCoin("1h");
+        presenter.getCoin("7d");
         mainActivity.showProgress();
     }
 
