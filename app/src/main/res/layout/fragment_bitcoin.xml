@@ -5,6 +5,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvPercentPicker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="Click here to choose Percentage"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <LinearLayout
         android:id="@+id/ln_title"
         android:layout_width="match_parent"
@@ -12,7 +22,7 @@
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/tvPercentPicker">
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvRank"
@@ -20,7 +30,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="0.1"
             android:padding="4dp"
-            android:text="Rank" />
+            android:text="Rank"
+            android:textStyle="bold" />
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/imgLogo"
@@ -36,7 +47,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="0.2"
             android:padding="4dp"
-            android:text="Name" />
+            android:text="Name"
+            android:textStyle="bold" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvSymbol"
@@ -44,23 +56,26 @@
             android:layout_height="wrap_content"
             android:layout_weight="0.15"
             android:padding="4dp"
-            android:text="Symbol" />
+            android:text="Symbol"
+            android:textStyle="bold" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvPrice"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="0.25"
+            android:layout_weight="0.2"
             android:padding="4dp"
-            android:text="Price" />
+            android:text="Price"
+            android:textStyle="bold" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvPercent"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="0.2"
+            android:layout_weight="0.25"
             android:padding="4dp"
-            android:text="Percent 7d" />
+            android:text="Percent"
+            android:textStyle="bold" />
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView

@@ -123,4 +123,15 @@ public class Coin {
     public double getPriceChangePercentage1yInCurrency() {
         return priceChangePercentage1yInCurrency;
     }
+
+    private static String[] percentageSymbols = {"1h", "24h", "7d", "30d", "1y"};
+    private static String[] percentageTitles = {"1 hour", "24 hour", "7 days", "30 days", "1 year"};
+
+    public static String[] getPercentageSymbols() {
+        return percentageSymbols;
+    }
+
+    public static String[] getPercentageTitles() {
+        return percentageTitles;
+    }
 }
