@@ -4,15 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#F2F2F2"
     android:gravity="center_vertical"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+    android:padding="4dp">
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvRank"
         android:layout_width="15dp"
         android:layout_height="wrap_content"
-        android:layout_weight="0.05"
+        android:layout_weight="0.07"
         android:padding="4dp"
         tools:text="10" />
 
@@ -28,7 +28,7 @@
         android:id="@+id/tvName"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="0.2"
+        android:layout_weight="0.25"
         android:padding="4dp"
         tools:text="Bitcoin" />
 
@@ -36,7 +36,7 @@
         android:id="@+id/tvSymbol"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="0.2"
+        android:layout_weight="0.13"
         android:padding="4dp"
         tools:text="BTC" />
 
@@ -44,48 +44,16 @@
         android:id="@+id/tvPrice"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="0.45"
+        android:layout_weight="0.25"
         android:padding="4dp"
         tools:text="$27,329.55" />
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/tvPercent1h"
+        android:id="@+id/tvPercent"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="0.3"
+        android:layout_weight="0.2"
         android:padding="4dp"
         tools:text="1h" />
-<!--
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/tvPercent24h"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.1"
-        android:padding="4dp"
-        tools:text="24h" />
-
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/tvPercent7d"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.1"
-        android:padding="4dp"
-        tools:text="7d" />
-
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/tvPercent30d"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.1"
-        android:padding="4dp"
-        tools:text="30d" />
-
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/tvPercent1y"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.1"
-        android:padding="4dp"
-        tools:text="1y" />-->
 
 </LinearLayout>

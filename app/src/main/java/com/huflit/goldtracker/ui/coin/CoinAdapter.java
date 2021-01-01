@@ -1,5 +1,6 @@
 package com.huflit.goldtracker.ui.coin;
 
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,20 +10,22 @@ import androidx.appcompat.widget.AppCompatImageView;
 import androidx.appcompat.widget.AppCompatTextView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.huflit.goldtracker.R;
 import com.huflit.goldtracker.data.model.coin.Coin;
-import com.huflit.goldtracker.data.model.gold.Exchange;
-import com.huflit.goldtracker.data.model.gold.Gold;
-import com.huflit.goldtracker.ui.exchange.ExchangeAdapter;
 import com.huflit.goldtracker.utils.CurrencyUtils;
 
 import java.util.List;
 
-public class CoinAdapter extends RecyclerView.Adapter<CoinAdapter.ViewHolder> {
-    private final List<Coin> coins;
 
-    public CoinAdapter(List<Coin> coins) {
+public class CoinAdapter extends RecyclerView.Adapter<CoinAdapter.ViewHolder> {
+
+    private final List<Coin> coins;
+    private int percentageType;
+
+    public CoinAdapter(List<Coin> coins, int percentageType) {
         this.coins = coins;
+        this.percentageType = percentageType;
     }
 
     @NonNull
@@ -34,7 +37,7 @@ public class CoinAdapter extends RecyclerView.Adapter<CoinAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull CoinAdapter.ViewHolder holder, int position) {
-        holder.bind(coins.get(position));
+        holder.bind(coins.get(position), percentageType);
     }
 
     @Override
@@ -49,7 +52,7 @@ public class CoinAdapter extends RecyclerView.Adapter<CoinAdapter.ViewHolder> {
         private final AppCompatTextView tvName;
         private final AppCompatTextView tvSymbol;
         private final AppCompatTextView tvPrice;
-        private final AppCompatTextView tvPercent1h;
+        private final AppCompatTextView tvPercent;
         private Coin coin;
 
         public ViewHolder(@NonNull View itemView) {
@@ -59,19 +62,50 @@ public class CoinAdapter extends RecyclerView.Adapter<CoinAdapter.ViewHolder> {
             tvName = itemView.findViewById(R.id.tvName);
             tvSymbol = itemView.findViewById(R.id.tvSymbol);
             tvPrice = itemView.findViewById(R.id.tvPrice);
-            tvPercent1h = itemView.findViewById(R.id.tvPercent1h);
+            tvPercent = itemView.findViewById(R.id.tvPercent);
         }
 
-        public void bind(Coin coin) {
+        public void bind(Coin coin, int percentageType) {
             this.coin = coin;
             tvRank.setText(String.valueOf(coin.getMarketCapRank()));
             tvName.setText(coin.getName().toUpperCase());
             tvSymbol.setText(coin.getSymbol().toUpperCase());
+            Glide.with(itemView).load(coin.getImage()).into(imgLogo);
 
-            String percent = String.valueOf(coin.getPriceChangePercentage1hInCurrency()).substring(0,3) + "%";
+            tvPrice.setText(CurrencyUtils.formatFullDigit(coin.getCurrentPrice()));
 
-            tvPrice.setText(String.valueOf(coin.getCurrentPrice()));
-            tvPercent1h.setText(percent);
+            String percent = CurrencyUtils.percentFormat(getPercentage(percentageType));
+            tvPercent.setText(percent);
+            if (coin.getPriceChangePercentage7dInCurrency() >= 0) {
+                tvPercent.setTextColor(Color.GREEN);
+            } else {
+                tvPercent.setTextColor(Color.RED);
+            }
+        }
+
+        private double getPercentage(int percentageType) {
+            double percent;
+            switch (Coin.getPercentageSymbols()[percentageType]) {
+                case "1h":
+                    percent = coin.getPriceChangePercentage1hInCurrency();
+                    break;
+                case "24h":
+                    percent = coin.getPriceChangePercentage24hInCurrency();
+                    break;
+                case "7d":
+                    percent = coin.getPriceChangePercentage7dInCurrency();
+                    break;
+                case "30d":
+                    percent = coin.getPriceChangePercentage30dInCurrency();
+                    break;
+                case "1y":
+                    percent = coin.getPriceChangePercentage1yInCurrency();
+                    break;
+                default:
+                    percent = 0.0;
+                    break;
+            }
+            return percent;
         }
     }
 

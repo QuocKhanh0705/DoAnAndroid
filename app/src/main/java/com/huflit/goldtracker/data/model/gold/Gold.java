@@ -40,11 +40,11 @@ public class Gold {
     }
 
     public double getBuy() {
-        return NumberUtils.parseDouble(buy);
+        return NumberUtils.parseDouble(buy) / 1000;
     }
 
     public double getSell() {
-        return NumberUtils.parseDouble(sell);
+        return NumberUtils.parseDouble(sell) / 1000;
     }
 
     public String getBrand() {

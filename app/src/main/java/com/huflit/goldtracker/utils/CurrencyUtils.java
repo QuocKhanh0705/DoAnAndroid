@@ -6,23 +6,28 @@ import java.text.DecimalFormat;
 
 public class CurrencyUtils {
 
-    public CurrencyUtils() {
-    }
+    public static final String CURRENCY_VND_UNIT = "đ";
+    public static final String CURRENCY_MIL_UNIT = "tr";
 
-    public final String CURRENCY_VND_UNIT = "đ";
-    public final String CURRENCY_MIL_UNIT = "tr";
+    private static final DecimalFormat formatter = new DecimalFormat("##.####");
 
-    private final DecimalFormat formatter = new DecimalFormat("#,###");
-
-    public String format(Double currency) {
+    public static String format(double currency) {
         return String.format("%s %s", toCurrency(currency), CURRENCY_VND_UNIT);
     }
 
-    public String format(Double currency, String unit) {
+    public static String format(double currency, String unit) {
         return String.format("%s %s", toCurrency(currency), unit);
     }
 
-    private String toCurrency(Double currency) {
+    public static String formatFullDigit(double currency) {
+        return String.format("$%s", currency);
+    }
+
+    public static String percentFormat(double percent) {
+        return formatter.format(percent) + "%";
+    }
+
+    private static String toCurrency(Double currency) {
         return formatter.format(currency);
     }
 }
