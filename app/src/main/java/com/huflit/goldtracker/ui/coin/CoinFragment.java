@@ -2,7 +2,6 @@ package com.huflit.goldtracker.ui.coin;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -16,12 +15,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.huflit.goldtracker.R;
 import com.huflit.goldtracker.data.model.coin.Coin;
-import com.huflit.goldtracker.data.model.coin.CoinResponse;
 import com.huflit.goldtracker.ui.base.BaseFragment;
-import com.huflit.goldtracker.utils.DateUtils;
-import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;
 
-import java.util.Calendar;
 import java.util.List;
 
 public class CoinFragment extends BaseFragment implements CoinAdapter.OnCoinClickListener, CoinView {

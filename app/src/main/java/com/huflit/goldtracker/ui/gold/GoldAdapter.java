@@ -63,8 +63,6 @@ public class GoldAdapter extends RecyclerView.Adapter<GoldAdapter.ViewHolder> {
                 }
             });
         }
-
-
         public void bind(Gold gold) {
             this.gold = gold;
             String name = gold.getCompany() + " " + gold.getBrand();
@@ -74,7 +72,6 @@ public class GoldAdapter extends RecyclerView.Adapter<GoldAdapter.ViewHolder> {
             tvSell.setText(CurrencyUtils.format(gold.getSell(), CurrencyUtils.CURRENCY_MIL_UNIT));
         }
     }
-
     public interface OnGoldClickListener {
         void onGoldClicked(Gold gold);
     }

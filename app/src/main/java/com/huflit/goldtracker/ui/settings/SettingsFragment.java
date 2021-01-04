@@ -1,4 +1,3 @@
-/*
 package com.huflit.goldtracker.ui.settings;
 
 import android.os.Bundle;
@@ -13,7 +12,8 @@ public class SettingsFragment extends PreferenceFragmentCompat {
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
         setPreferencesFromResource(R.xml.root_preferences, rootKey);
     }
-}*/
+}
+/*
 package com.huflit.goldtracker.ui.settings;
 
 import com.huflit.goldtracker.R;
@@ -24,4 +24,4 @@ public class SettingsFragment extends BaseFragment {
     protected int getLayoutResId() {
         return R.layout.fragment_settings;
     }
-}
+}*/

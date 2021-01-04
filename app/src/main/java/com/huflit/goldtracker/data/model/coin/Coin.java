@@ -5,8 +5,8 @@ import com.google.gson.annotations.SerializedName;
 
 public class Coin {
     @Expose
-    @SerializedName("id")
-    private String id;
+    @SerializedName("id") //api
+    private String id; //app
     @Expose
     @SerializedName("symbol")
     private String symbol;
@@ -104,6 +104,8 @@ public class Coin {
         return lastUpdated;
     }
 
+
+    //ham
     public double getPriceChangePercentage1hInCurrency() {
         return priceChangePercentage1hInCurrency;
     }
