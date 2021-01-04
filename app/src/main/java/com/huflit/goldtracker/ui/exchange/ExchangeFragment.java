@@ -89,6 +89,7 @@ public class ExchangeFragment extends BaseFragment implements ExchangeView, Date
     @Override
     public void onLoadExchangeSuccess(List<Exchange> exchanges) {
         mainActivity.hideProgress();
+        this.exchanges = exchanges;
         exchangeAdapter.setExchanges(exchanges);
     }
 

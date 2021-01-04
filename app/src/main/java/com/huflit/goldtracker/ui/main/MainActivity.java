@@ -22,7 +22,6 @@ import com.huflit.goldtracker.ui.coin.CoinFragment;
 import com.huflit.goldtracker.ui.exchange.ExchangeFragment;
 import com.huflit.goldtracker.ui.gold.GoldFragment;
 import com.huflit.goldtracker.ui.rate.RateFragment;
-import com.huflit.goldtracker.ui.settings.SettingsFragment;
 
 import java.util.Calendar;
 
@@ -65,10 +64,6 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
                 return true;
             case R.id.navigation_convert:
                 fragment = new RateFragment();
-                loadFragment(fragment);
-                return true;
-            case R.id.navigation_settings:
-                fragment = new SettingsFragment();
                 loadFragment(fragment);
                 return true;
         }

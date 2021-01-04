@@ -136,7 +136,6 @@ public class CoinFragment extends BaseFragment implements CoinAdapter.OnCoinClic
                     coinAdapter.setCoins(filterList);
                     return true;
                 }
-
                 @Override
                 public boolean onQueryTextSubmit(String query) {
                     return true;

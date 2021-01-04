@@ -102,6 +102,7 @@ public class GoldFragment extends BaseFragment
     @Override
     public void onLoadGoldSuccess(List<Gold> golds) {
         mainActivity.hideProgress();
+        this.golds = golds;
         goldAdapter.setGolds(golds);
     }
 
