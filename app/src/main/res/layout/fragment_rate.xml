@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="8dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/glVertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.2" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvAmount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:text="@string/rate_amount"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/edtAmount"
+            app:layout_constraintEnd_toStartOf="@id/glVertical"
+            app:layout_constraintTop_toTopOf="@id/edtAmount" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/edtAmount"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:background="@drawable/background_rounded_border"
+            android:hint="@string/rate_amount_hint"
+            android:inputType="number"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/glVertical"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvFrom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:text="@string/rate_from"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/rlFrom"
+            app:layout_constraintEnd_toStartOf="@id/glVertical"
+            app:layout_constraintTop_toTopOf="@id/rlFrom" />
+
+        <RelativeLayout
+            android:id="@+id/rlFrom"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/background_rounded_border_non_padding"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/glVertical"
+            app:layout_constraintTop_toBottomOf="@id/edtAmount">
+
+            <androidx.appcompat.widget.AppCompatSpinner
+                android:id="@+id/spnFrom"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </RelativeLayout>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvTo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:text="@string/rate_to"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/rlTo"
+            app:layout_constraintEnd_toStartOf="@id/glVertical"
+            app:layout_constraintTop_toTopOf="@id/rlTo" />
+
+        <RelativeLayout
+            android:id="@+id/rlTo"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/background_rounded_border_non_padding"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/glVertical"
+            app:layout_constraintTop_toBottomOf="@id/rlFrom">
+
+            <androidx.appcompat.widget.AppCompatSpinner
+                android:id="@+id/spnTo"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </RelativeLayout>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:text="@string/rate_result"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/tvResult"
+            app:layout_constraintEnd_toStartOf="@id/glVertical"
+            app:layout_constraintTop_toTopOf="@id/tvResult" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvResult"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/background_rounded_border"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/glVertical"
+            app:layout_constraintTop_toBottomOf="@id/rlTo" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

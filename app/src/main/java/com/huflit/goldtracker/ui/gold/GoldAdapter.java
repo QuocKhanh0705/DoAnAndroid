@@ -12,15 +12,15 @@ import com.huflit.goldtracker.R;
 import com.huflit.goldtracker.data.model.gold.Gold;
 import com.huflit.goldtracker.utils.CurrencyUtils;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class GoldAdapter extends RecyclerView.Adapter<GoldAdapter.ViewHolder> {
 
-    protected final List<Gold> golds;
+    protected List<Gold> golds = new ArrayList<>();
     private OnGoldClickListener listener;
 
-    public GoldAdapter(List<Gold> golds, OnGoldClickListener listener) {
-        this.golds = golds;
+    public GoldAdapter(OnGoldClickListener listener) {
         this.listener = listener;
     }
 
@@ -63,6 +63,7 @@ public class GoldAdapter extends RecyclerView.Adapter<GoldAdapter.ViewHolder> {
                 }
             });
         }
+
         public void bind(Gold gold) {
             this.gold = gold;
             String name = gold.getCompany() + " " + gold.getBrand();
@@ -72,7 +73,13 @@ public class GoldAdapter extends RecyclerView.Adapter<GoldAdapter.ViewHolder> {
             tvSell.setText(CurrencyUtils.format(gold.getSell(), CurrencyUtils.CURRENCY_MIL_UNIT));
         }
     }
+
     public interface OnGoldClickListener {
         void onGoldClicked(Gold gold);
+    }
+
+    public void setGolds(List<Gold> golds) {
+        this.golds = golds;
+        notifyDataSetChanged();
     }
 }

@@ -1,21 +1,41 @@
 <resources>
-    <string name="app_name">GoldTracker</string>
-    <string name="menu_gold">Gold</string>
-    <string name="menu_exchange">Exchange</string>
+    <string name="app_name">Tỷ giá vàng</string>
+    <string name="menu_gold">Vàng</string>
+    <string name="menu_exchange">Tỷ giá</string>
     <string name="menu_bitcoin">Bitcoin</string>
-    <string name="menu_settings">Settings</string>
+    <string name="menu_settings">Cài đặt</string>
+    <string name="menu_convert">Chuyển đổi</string>
+
+    <string name="bitcoin_change_percentage">Nhấn vào đây để chọn loại Phần trăm</string>
+    <string name="bitcoin_rank">Hạng</string>
+    <string name="bitcoin_name">Tên</string>
+    <string name="bitcoin_symbol">Ký hiệu</string>
+    <string name="bitcoin_price">Giá</string>
+    <string name="bitcoin_percent">Phần trăm</string>
+
+    <string name="gold_brand">Thương hiệu</string>
+    <string name="gold_buy">Mua</string>
+    <string name="gold_sell">Bán</string>
+
+    <string name="exchange_buy">Mua</string>
+    <string name="exchange_name">Ngoại tệ</string>
+    <string name="exchange_transfer">CK</string>
+    <string name="exchange_sell">Bán</string>
+
+    <string name="rate_amount">Số lượng</string>
+    <string name="rate_from">Đổi </string>
+    <string name="rate_to">Sang</string>
+    <string name="rate_result">Kết quả</string>
+    <string name="rate_amount_hint">Nhập số lượng ở đây</string>
+
+    <string name="coin_dialog_title">Chọn loại</string>
+    <string name="coin_percentage">Phần trăm</string>
+
+    <string name="message_error">Tải dữ liệu thất bại</string>
+    <string name="button_date_change">Thay đổi ngày</string>
+    <string name="settings_language">Ngôn ngữ</string>
+
     <!-- Preference Titles -->
-    <string name="messages_header">Messages</string>
-    <string name="sync_header">Sync</string>
+    <string name="messages_header">General Settings</string>
 
-    <!-- Messages Preferences -->
-    <string name="signature_title">Your signature</string>
-    <string name="reply_title">Default reply action</string>
-
-    <!-- Sync Preferences -->
-    <string name="sync_title">Sync email periodically</string>
-    <string name="attachment_title">Download incoming attachments</string>
-    <string name="attachment_summary_on">Automatically download attachments for incoming emails
-    </string>
-    <string name="attachment_summary_off">Only download attachments when manually requested</string>
 </resources>

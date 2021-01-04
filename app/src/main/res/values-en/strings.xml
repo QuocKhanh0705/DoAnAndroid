@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">GoldTracker</string>
+    <string name="menu_gold">Gold</string>
+    <string name="menu_exchange">Exchange</string>
+    <string name="menu_bitcoin">Bitcoin</string>
+    <string name="menu_settings">Setting</string>
+    <string name="menu_convert">Convert</string>
+
+    <string name="bitcoin_change_percentage">Click here to choose Percentage</string>
+    <string name="bitcoin_rank">Rank</string>
+    <string name="bitcoin_name">Name</string>
+    <string name="bitcoin_symbol">Symbol</string>
+    <string name="bitcoin_price">Price</string>
+    <string name="bitcoin_percent">Percent</string>
+
+    <string name="gold_brand">Brand</string>
+    <string name="gold_buy">Buy</string>
+    <string name="gold_sell">Sell</string>
+
+    <string name="exchange_buy">Buy</string>
+    <string name="exchange_name">Name</string>
+    <string name="exchange_transfer">Transfer</string>
+    <string name="exchange_sell">Sell</string>
+
+    <string name="rate_amount">Amount</string>
+    <string name="rate_from">From</string>
+    <string name="rate_to">To</string>
+    <string name="rate_result">Result</string>
+
+    <string name="coin_dialog_title">Select type</string>
+    <string name="coin_percentage">Percent</string>
+    
+    <string name="message_error">Load data failure</string>
+    <string name="button_date_change">Change date</string>
+    <string name="rate_amount_hint">Input amount here</string>
+    <string name="settings_language">Language</string>
+
+    <!-- Preference Titles -->
+    <string name="messages_header">General Settings</string>
+</resources>

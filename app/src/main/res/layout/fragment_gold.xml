@@ -5,6 +5,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnDateChange"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:text="@string/button_date_change"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvDate"
         android:layout_width="0dp"
@@ -12,8 +23,9 @@
         android:layout_margin="8dp"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/btnDateChange"
+        app:layout_constraintEnd_toStartOf="@id/btnDateChange"
+        app:layout_constraintTop_toTopOf="@id/btnDateChange"
         tools:text="28/12/2020" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -22,14 +34,14 @@
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvDate">
+        app:layout_constraintTop_toBottomOf="@+id/btnDateChange">
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="4dp"
-            android:text="Thương hiệu"
+            android:text="@string/gold_brand"
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
@@ -46,7 +58,7 @@
             android:id="@+id/tvBuy"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Mua"
+            android:text="@string/gold_buy"
             android:textColor="@android:color/holo_green_dark"
             android:textSize="16sp"
             android:textStyle="bold"
@@ -66,7 +78,7 @@
             android:id="@+id/tvSell"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Bán"
+            android:text="@string/gold_sell"
             android:textColor="@android:color/holo_red_light"
             android:textSize="16sp"
             android:textStyle="bold"

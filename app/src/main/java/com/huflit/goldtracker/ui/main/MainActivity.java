@@ -2,11 +2,16 @@ package com.huflit.goldtracker.ui.main;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.annotation.SuppressLint;
+import android.app.SearchManager;
+import android.content.Context;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ProgressBar;
@@ -16,6 +21,7 @@ import com.huflit.goldtracker.R;
 import com.huflit.goldtracker.ui.coin.CoinFragment;
 import com.huflit.goldtracker.ui.exchange.ExchangeFragment;
 import com.huflit.goldtracker.ui.gold.GoldFragment;
+import com.huflit.goldtracker.ui.rate.RateFragment;
 import com.huflit.goldtracker.ui.settings.SettingsFragment;
 
 import java.util.Calendar;
@@ -26,6 +32,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     private Calendar goldCalendar = Calendar.getInstance();
     private Calendar exchangeCalendar = Calendar.getInstance();
     private Calendar coinCalendar = Calendar.getInstance();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,6 +61,10 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
                 return true;
             case R.id.navigation_bitcoin:
                 fragment = new CoinFragment();
+                loadFragment(fragment);
+                return true;
+            case R.id.navigation_convert:
+                fragment = new RateFragment();
                 loadFragment(fragment);
                 return true;
             case R.id.navigation_settings:
@@ -99,7 +110,12 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     public void setExchangeCalendar(Calendar exchangeCalendar) {
         this.exchangeCalendar = exchangeCalendar;
     }
-    public  void setCoinCalendar(Calendar coinCalendar) {this.coinCalendar = coinCalendar;}
-    public  Calendar getCoinCalenda()
-    {return coinCalendar; }
+
+    public void setCoinCalendar(Calendar coinCalendar) {
+        this.coinCalendar = coinCalendar;
+    }
+
+    public Calendar getCoinCalenda() {
+        return coinCalendar;
+    }
 }

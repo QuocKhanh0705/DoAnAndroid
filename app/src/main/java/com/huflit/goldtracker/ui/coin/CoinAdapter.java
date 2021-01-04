@@ -13,18 +13,19 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.huflit.goldtracker.R;
 import com.huflit.goldtracker.data.model.coin.Coin;
+import com.huflit.goldtracker.data.model.gold.Exchange;
 import com.huflit.goldtracker.utils.CurrencyUtils;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
 public class CoinAdapter extends RecyclerView.Adapter<CoinAdapter.ViewHolder> {
 
-    private final List<Coin> coins;
+    private List<Coin> coins = new ArrayList<>();
     private int percentageType;
 
-    public CoinAdapter(List<Coin> coins, int percentageType) {
-        this.coins = coins;
+    public CoinAdapter(int percentageType) {
         this.percentageType = percentageType;
     }
 
@@ -76,7 +77,7 @@ public class CoinAdapter extends RecyclerView.Adapter<CoinAdapter.ViewHolder> {
 
             String percent = CurrencyUtils.percentFormat(getPercentage(percentageType));
             tvPercent.setText(percent);
-            if (coin.getPriceChangePercentage7dInCurrency() >= 0) {
+            if (getPercentage(percentageType) >= 0) {
                 tvPercent.setTextColor(Color.GREEN);
             } else {
                 tvPercent.setTextColor(Color.RED);
@@ -111,5 +112,10 @@ public class CoinAdapter extends RecyclerView.Adapter<CoinAdapter.ViewHolder> {
 
     public interface OnCoinClickListener {
         void onCoinClicked(Coin coin);
+    }
+
+    public void setCoins(List<Coin> coins) {
+        this.coins = coins;
+        notifyDataSetChanged();
     }
 }

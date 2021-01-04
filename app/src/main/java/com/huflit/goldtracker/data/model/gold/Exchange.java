@@ -12,6 +12,14 @@ public class Exchange {
     private String day;
     private String code;
 
+    public Exchange(String code, String name, String buy, String sell, String transfer) {
+        this.buy = buy;
+        this.name = name;
+        this.sell = sell;
+        this.transfer = transfer;
+        this.code = code;
+    }
+
     public double getBuy() {
         return NumberUtils.parseDouble(buy);
     }

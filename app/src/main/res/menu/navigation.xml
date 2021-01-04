@@ -17,6 +17,11 @@
         android:title="@string/menu_bitcoin" />
 
     <item
+        android:id="@+id/navigation_convert"
+        android:icon="@drawable/ic_money_exchange"
+        android:title="@string/menu_convert" />
+
+    <item
         android:id="@+id/navigation_settings"
         android:icon="@drawable/ic_settings"
         android:title="@string/menu_settings" />

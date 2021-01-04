@@ -10,16 +10,17 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.huflit.goldtracker.R;
 import com.huflit.goldtracker.data.model.gold.Exchange;
+import com.huflit.goldtracker.data.model.gold.Gold;
 import com.huflit.goldtracker.utils.CurrencyUtils;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ExchangeAdapter extends RecyclerView.Adapter<ExchangeAdapter.ViewHolder> {
 
-    private final List<Exchange> exchanges;
+    private List<Exchange> exchanges = new ArrayList<>();
 
-    public ExchangeAdapter(List<Exchange> exchanges) {
-        this.exchanges = exchanges;
+    public ExchangeAdapter() {
     }
 
     @NonNull
@@ -80,5 +81,10 @@ public class ExchangeAdapter extends RecyclerView.Adapter<ExchangeAdapter.ViewHo
                 tvSell.setText(currencyUtils.format(exchange.getSell()));
             }
         }
+    }
+
+    public void setExchanges(List<Exchange> exchanges) {
+        this.exchanges = exchanges;
+        notifyDataSetChanged();
     }
 }

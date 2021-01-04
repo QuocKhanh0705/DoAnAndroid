@@ -10,7 +10,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="8dp"
-        android:text="Click here to choose Percentage"
+        android:text="@string/bitcoin_change_percentage"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -30,7 +30,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="0.1"
             android:padding="4dp"
-            android:text="Rank"
+            android:text="@string/bitcoin_rank"
             android:textStyle="bold" />
 
         <androidx.appcompat.widget.AppCompatImageView
@@ -47,7 +47,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="0.2"
             android:padding="4dp"
-            android:text="Name"
+            android:text="@string/bitcoin_name"
             android:textStyle="bold" />
 
         <androidx.appcompat.widget.AppCompatTextView
@@ -56,7 +56,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="0.15"
             android:padding="4dp"
-            android:text="Symbol"
+            android:text="@string/bitcoin_symbol"
             android:textStyle="bold" />
 
         <androidx.appcompat.widget.AppCompatTextView
@@ -65,7 +65,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="0.2"
             android:padding="4dp"
-            android:text="Price"
+            android:text="@string/bitcoin_price"
             android:textStyle="bold" />
 
         <androidx.appcompat.widget.AppCompatTextView
@@ -74,7 +74,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="0.25"
             android:padding="4dp"
-            android:text="Percent"
+            android:text="@string/bitcoin_percent"
             android:textStyle="bold" />
     </LinearLayout>
 

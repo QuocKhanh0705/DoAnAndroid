@@ -1,10 +1,12 @@
 package com.huflit.goldtracker.ui.exchange;
 
-import com.huflit.goldtracker.data.model.gold.TyGiaResponse;
+import com.huflit.goldtracker.data.model.gold.Exchange;
+
+import java.util.List;
 
 public interface ExchangeView {
 
-    void onLoadExchangeSuccess(TyGiaResponse tyGiaResponse);
+    void onLoadExchangeSuccess(List<Exchange> exchanges);
 
     void onLoadExchangeFailed();
 }
